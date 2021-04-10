@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Goods View Controller-->
+        <scene sceneID="Teo-r3-ub3">
+            <objects>
+                <viewController identifier="GoodsViewController" storyboardIdentifier="GoodsViewController" id="VAl-bm-kEZ" customClass="GoodsViewController" customModule="Wholesale_Company_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="XRy-8D-6UB">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pJH-Mi-OS0">
+                                <rect key="frame" x="203" y="142" width="44" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Goods" id="tuj-fv-7Ci">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pJH-Mi-OS0" secondAttribute="trailing" constant="205" id="FP3-JZ-LlJ"/>
+                            <constraint firstItem="pJH-Mi-OS0" firstAttribute="leading" secondItem="XRy-8D-6UB" secondAttribute="leading" constant="205" id="Yhv-4M-Gq1"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="phu-1U-yZY" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="112" y="131"/>
+        </scene>
+    </scenes>
+</document>

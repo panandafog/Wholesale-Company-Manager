@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sales View Controller-->
+        <scene sceneID="RjZ-fs-lSF">
+            <objects>
+                <viewController identifier="SalesViewController" storyboardIdentifier="SalesViewController" id="kAC-JD-a4r" customClass="SalesViewController" customModule="Wholesale_Company_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Ja1-uc-24m">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0eL-Dy-fOp">
+                                <rect key="frame" x="207" y="142" width="37" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Sales" id="4L9-R3-ZS7">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="0eL-Dy-fOp" firstAttribute="leading" secondItem="Ja1-uc-24m" secondAttribute="leading" constant="209" id="O3w-iP-vKj"/>
+                            <constraint firstAttribute="trailing" secondItem="0eL-Dy-fOp" secondAttribute="trailing" constant="208" id="ngd-s2-qPC"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="v1R-Fa-CiL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="190" y="194"/>
+        </scene>
+    </scenes>
+</document>

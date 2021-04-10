@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="ZOl-Dk-e9Y">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="NSView safe area layout guides" minToolsVersion="12.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="6Xe-7Y-84Y">
+            <objects>
+                <windowController storyboardIdentifier="MainWindowController" id="ZOl-Dk-e9Y" customClass="MainWindowController" customModule="Wholesale_Company_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Wholesale Company Manager" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" toolbarStyle="compact" id="fCS-Bd-OSI">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="268" y="340" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1792" height="1120"/>
+                        <view key="contentView" id="nxf-CQ-hnW">
+                            <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </view>
+                        <connections>
+                            <outlet property="delegate" destination="ZOl-Dk-e9Y" id="agQ-Hh-IeL"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="mky-bq-4Zx" kind="relationship" relationship="window.shadowedContentViewController" id="pfC-3G-tN3"/>
+                    </connections>
+                </windowController>
+                <customObject id="Uaw-Ag-QhB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-427" y="155"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="St1-sz-KJ3">
+            <objects>
+                <splitViewController id="mky-bq-4Zx" customClass="SplitViewController" customModule="Wholesale_Company_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <splitViewItems>
+                        <splitViewItem canCollapse="YES" holdingPriority="260" behavior="sidebar" id="ufa-pW-PYL"/>
+                    </splitViewItems>
+                    <splitView key="splitView" dividerStyle="thin" vertical="YES" id="hUE-t8-UHU">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </splitView>
+                    <connections>
+                        <segue destination="Uhs-l1-xpX" kind="relationship" relationship="splitItems" id="bOm-M0-mHM"/>
+                    </connections>
+                </splitViewController>
+                <customObject id="6xz-Fi-a9i" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="265" y="159"/>
+        </scene>
+        <!--Sidebar View Controller-->
+        <scene sceneID="Wfy-9y-MRg">
+            <objects>
+                <viewController id="Uhs-l1-xpX" customClass="SidebarViewController" customModule="Wholesale_Company_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Lzh-h4-Gcf">
+                        <rect key="frame" x="0.0" y="0.0" width="149" height="388"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TyW-ED-Tm3">
+                                <rect key="frame" x="8" y="176" width="133" height="19"/>
+                                <buttonCell key="cell" type="recessed" title="Goods" bezelStyle="recessed" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xh7-lf-f4q">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="switchTab:" target="Uhs-l1-xpX" id="TEv-Dv-cy9"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gS8-ga-2oN">
+                                <rect key="frame" x="8" y="217" width="133" height="19"/>
+                                <buttonCell key="cell" type="recessed" title="Sales" bezelStyle="recessed" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bww-eg-UFX">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="switchTab:" target="Uhs-l1-xpX" id="C1C-17-aJe"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xhz-p5-Eke">
+                                <rect key="frame" x="8" y="94" width="133" height="19"/>
+                                <buttonCell key="cell" type="recessed" title="Big warehouse" bezelStyle="recessed" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6fA-km-s12">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="switchTab:" target="Uhs-l1-xpX" id="T15-zE-jnI"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uaz-d2-E9A">
+                                <rect key="frame" x="8" y="135" width="133" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="133" id="XKy-te-7WO"/>
+                                </constraints>
+                                <buttonCell key="cell" type="recessed" title="Small warehouse" bezelStyle="recessed" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uDG-3Q-WJT">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="switchTab:" target="Uhs-l1-xpX" id="z2t-fA-dDe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="TyW-ED-Tm3" firstAttribute="top" secondItem="gS8-ga-2oN" secondAttribute="bottom" constant="23" id="3h8-l6-G8f"/>
+                            <constraint firstItem="gS8-ga-2oN" firstAttribute="top" secondItem="oKm-oe-AYO" secondAttribute="top" constant="100" id="46j-SZ-YfX"/>
+                            <constraint firstItem="gS8-ga-2oN" firstAttribute="leading" secondItem="oKm-oe-AYO" secondAttribute="leading" constant="8" id="6Nb-UE-UAT"/>
+                            <constraint firstItem="xT6-wz-cBI" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xhz-p5-Eke" secondAttribute="bottom" constant="20" id="7Zv-HO-SQx"/>
+                            <constraint firstItem="TyW-ED-Tm3" firstAttribute="leading" secondItem="oKm-oe-AYO" secondAttribute="leading" constant="8" id="ITg-ZZ-NhP"/>
+                            <constraint firstItem="oKm-oe-AYO" firstAttribute="trailing" secondItem="TyW-ED-Tm3" secondAttribute="trailing" constant="8" id="JkK-li-mH4"/>
+                            <constraint firstItem="xhz-p5-Eke" firstAttribute="top" secondItem="Uaz-d2-E9A" secondAttribute="bottom" constant="23" id="Lcg-O0-669"/>
+                            <constraint firstItem="oKm-oe-AYO" firstAttribute="trailing" secondItem="gS8-ga-2oN" secondAttribute="trailing" constant="8" id="Sgh-sM-UnM"/>
+                            <constraint firstItem="xhz-p5-Eke" firstAttribute="leading" secondItem="oKm-oe-AYO" secondAttribute="leading" constant="8" id="UQo-yB-HLp"/>
+                            <constraint firstItem="oKm-oe-AYO" firstAttribute="trailing" secondItem="xhz-p5-Eke" secondAttribute="trailing" constant="8" id="ayB-TR-Lap"/>
+                            <constraint firstItem="Uaz-d2-E9A" firstAttribute="top" secondItem="TyW-ED-Tm3" secondAttribute="bottom" constant="23" id="l3V-8C-cwy"/>
+                            <constraint firstItem="oKm-oe-AYO" firstAttribute="trailing" secondItem="Uaz-d2-E9A" secondAttribute="trailing" constant="8" id="n7R-83-gyG"/>
+                            <constraint firstItem="Uaz-d2-E9A" firstAttribute="leading" secondItem="oKm-oe-AYO" secondAttribute="leading" constant="8" id="rzy-TE-iEK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oKm-oe-AYO"/>
+                        <viewLayoutGuide key="layoutMargins" id="xT6-wz-cBI"/>
+                    </view>
+                    <connections>
+                        <outlet property="bigWarehouseTabButton" destination="xhz-p5-Eke" id="xrE-Qt-FI3"/>
+                        <outlet property="goodsTabButton" destination="TyW-ED-Tm3" id="btR-v3-ffQ"/>
+                        <outlet property="salesTabButton" destination="gS8-ga-2oN" id="ypm-sF-nf3"/>
+                        <outlet property="smallWarehouseTabButton" destination="Uaz-d2-E9A" id="xk7-hE-YRI"/>
+                    </connections>
+                </viewController>
+                <customObject id="RNH-Uj-v1C" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="711" y="159"/>
+        </scene>
+    </scenes>
+</document>
