@@ -127,8 +127,8 @@
 		0B4C4BAD2621F7E900BAB5A3 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
-				0B4C4B9A2621EBEF00BAB5A3 /* Goods.storyboard */,
 				0B4C4B9D2621EBF900BAB5A3 /* Sales.storyboard */,
+				0B4C4B9A2621EBEF00BAB5A3 /* Goods.storyboard */,
 				0B4C4BA32621EC1300BAB5A3 /* SmallWarehouse.storyboard */,
 				0B4C4BA02621EC0600BAB5A3 /* BigWarehouse.storyboard */,
 			);

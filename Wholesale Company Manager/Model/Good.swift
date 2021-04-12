@@ -7,7 +7,7 @@
 
 // MARK: - Good
 struct Good: Codable {
-    let id: Int
-    let name: String
-    let priority: Int
+    var id: Int?
+    var name = "<name>"
+    var priority = 1
 }
