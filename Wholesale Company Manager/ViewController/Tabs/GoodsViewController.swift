@@ -50,11 +50,7 @@ class GoodsViewController: NSViewController {
     }
     
     @IBAction func nameEdited(_ sender: NSTextField) {
-        guard let row = sender.superview?.superview,
-              let table = row.superview as? NSTableView else {
-            return
-        }
-
+        
         var selectedGood = repo.goods[table.row(for: sender)]
         selectedGood.name = sender.stringValue
         repo.saveGood(selectedGood, completion: {

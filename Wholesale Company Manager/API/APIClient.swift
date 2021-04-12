@@ -85,4 +85,138 @@ class APIClient {
             }
         })
     }
+    
+    // MARK: - getAllSales
+    func getAllSales(completion: @escaping ((_ sales: [Sale]) -> Void)) {
+        
+        guard let url = URL(string: host + salesPath + getAllPath) else {
+            return
+        }
+        let request = AF.request(url)
+        
+        request.responseJSON(completionHandler: { json in
+            guard let data = json.data else {
+                return
+            }
+            guard let sales = try? JSONDecoder().decode([Sale].self, from: data) else {
+                return
+            }
+            completion(sales)
+        })
+    }
+    
+    // MARK: saveSale
+    func saveSale(_ sale: Sale, completion: (() -> Void)?) {
+        
+        guard let url = URL(string: host + salesPath + savePath) else {
+            return
+        }
+        let encoder = JSONEncoder()
+        
+        guard let jsonData = try? encoder.encode(sale) else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+        
+        AF.request(request).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                print ("finish")
+                if completion != nil {
+                    completion!()
+                }
+            case .failure(let error):
+                print ("error")
+            }
+        }
+    }
+    
+    // MARK: deleteSale
+    func deleteSale(id: Int, completion: (() -> Void)?) {
+        
+        let parameters: [String: Any] = [
+            "id" : id
+        ]
+        
+        guard let url = URL(string: host + salesPath + deleteByIdPath) else {
+            return
+        }
+        
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON (completionHandler: { result in
+            
+            if completion != nil {
+                completion!()
+            }
+        })
+    }
+    
+    // MARK: - getAllRacks
+    func getAllRacks(warehouse: Warehouse, completion: @escaping ((_ racks: [Rack]) -> Void)) {
+        
+        guard let url = URL(string: host + warehouse.path() + getAllPath) else {
+            return
+        }
+        let request = AF.request(url)
+        
+        request.responseJSON(completionHandler: { json in
+            guard let data = json.data else {
+                return
+            }
+            guard let racks = try? JSONDecoder().decode([Rack].self, from: data) else {
+                return
+            }
+            completion(racks)
+        })
+    }
+    
+    // MARK: saveRack
+    func saveRack(_ rack: Rack, warehouse: Warehouse, completion: (() -> Void)?) {
+        
+        guard let url = URL(string: host + warehouse.path() + savePath) else {
+            return
+        }
+        let encoder = JSONEncoder()
+        
+        guard let jsonData = try? encoder.encode(rack) else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+        
+        AF.request(request).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                print ("finish")
+                if completion != nil {
+                    completion!()
+                }
+            case .failure(let error):
+                print ("error")
+            }
+        }
+    }
+    
+    // MARK: deleteRack
+    func deleteRack(id: Int, warehouse: Warehouse, completion: (() -> Void)?) {
+        
+        let parameters: [String: Any] = [
+            "id" : id
+        ]
+        
+        guard let url = URL(string: host + warehouse.path() + deleteByIdPath) else {
+            return
+        }
+        
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON (completionHandler: { result in
+            
+            if completion != nil {
+                completion!()
+            }
+        })
+    }
 }

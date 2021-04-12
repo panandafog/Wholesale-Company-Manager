@@ -14,13 +14,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eP-Wr-cYz">
-                                <rect key="frame" x="20" y="35" width="410" height="245"/>
+                                <rect key="frame" x="20" y="35" width="410" height="240"/>
                                 <clipView key="contentView" id="PBQ-kD-N8l">
-                                    <rect key="frame" x="1" y="1" width="408" height="243"/>
+                                    <rect key="frame" x="1" y="1" width="408" height="238"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" headerView="0Jb-XE-i4U" viewBased="YES" id="vke-oM-UWA">
-                                            <rect key="frame" x="0.0" y="0.0" width="408" height="215"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="408" height="210"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="17" height="0.0"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -133,7 +133,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Nf2-Wi-jqi">
-                                    <rect key="frame" x="1" y="243" width="408" height="16"/>
+                                    <rect key="frame" x="1" y="228" width="408" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="EdL-4o-aXV">
@@ -190,7 +190,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="SfA-xW-42Q" firstAttribute="leading" secondItem="1eP-Wr-cYz" secondAttribute="leading" id="0y0-cJ-rUK"/>
-                            <constraint firstItem="1eP-Wr-cYz" firstAttribute="top" secondItem="XRy-8D-6UB" secondAttribute="top" constant="20" symbolic="YES" id="6eD-bp-4bu"/>
+                            <constraint firstItem="1eP-Wr-cYz" firstAttribute="top" secondItem="XRy-8D-6UB" secondAttribute="top" constant="25" id="6eD-bp-4bu"/>
                             <constraint firstAttribute="trailing" secondItem="1eP-Wr-cYz" secondAttribute="trailing" constant="20" symbolic="YES" id="6qH-vP-zza"/>
                             <constraint firstItem="1eP-Wr-cYz" firstAttribute="leading" secondItem="XRy-8D-6UB" secondAttribute="leading" constant="20" symbolic="YES" id="BBi-AR-Bj4"/>
                             <constraint firstItem="2Uz-UW-w4m" firstAttribute="top" secondItem="ioR-x6-yjd" secondAttribute="top" id="BQ6-bG-cQN"/>

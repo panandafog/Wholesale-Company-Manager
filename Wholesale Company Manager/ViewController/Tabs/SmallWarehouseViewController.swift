@@ -9,4 +9,143 @@ import Cocoa
 
 class SmallWarehouseViewController: NSViewController {
     
+    private var repo = Repository.shared
+    
+    @IBOutlet var table: NSTableView!
+    @IBOutlet var addButton: NSButton!
+    @IBOutlet var removeButton: NSButton!
+    @IBOutlet var refreshButton: NSButton!
+    
+    // MARK: viewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        table.delegate = self
+        table.dataSource = self
+        
+        refreshTableData()
+    }
+    
+    // MARK: IBActions
+    @IBAction func addButtonPressed(_ sender: Any) {
+        
+    }
+    
+    @IBAction func removeButtonPressed(_ sender: Any) {
+        let selectedRows = table.selectedRowIndexes
+        for selectedRow in selectedRows {
+            if selectedRow >= 0 && selectedRow < repo.smallWarehouse.count {
+                let selectedRack = repo.smallWarehouse[selectedRow]
+                self.repo.deleteRack(selectedRack, warehouse: .small, completion: {
+                    self.refreshTableData()
+                })
+            }
+        }
+    }
+    
+    @IBAction func refreshButtonPressed(_ sender: Any) {
+        refreshTableData()
+    }
+    
+    @IBAction func goodEdited(_ sender: NSComboBox) {
+        
+        let row = table.row(for: sender)
+        guard sender.indexOfSelectedItem >= 0
+                && sender.indexOfSelectedItem < repo.goods.count
+                && row >= 0 && row < repo.sales.count else {
+            return
+        }
+        
+        let newGood = repo.goods[sender.indexOfSelectedItem]
+        var selectedRack = repo.smallWarehouse[table.row(for: sender)]
+        selectedRack.good = newGood
+        
+        repo.saveRack(selectedRack, warehouse: .small, completion: {
+            self.refreshTableData()
+        })
+    }
+    
+    @IBAction func countEdited(_ sender: NSTextField) {
+
+        var selectedRack = repo.smallWarehouse[table.row(for: sender)]
+        selectedRack.goodCount = sender.integerValue
+        repo.saveRack(selectedRack, warehouse: .small, completion: {
+            self.refreshTableData()
+        })
+    }
+        
+    // MARK: refreshTableData
+    private func refreshTableData() {
+        repo.refreshGoods(completion: { _ in
+        })
+        repo.refreshWarehouse(warehouse: .small, completion: { racks in
+            self.onTableDataChanged(racks)
+        })
+    }
+    
+    // MARK: onTableDataChanged
+    private func onTableDataChanged() {
+        onTableDataChanged(repo.smallWarehouse)
+    }
+    
+    private func onTableDataChanged(_ racks: [Rack]) {
+        self.table.reloadData()
+        
+        if racks.isEmpty {
+            removeButton.isEnabled = false
+        }
+    }
+}
+
+// MARK: - NSTableViewDelegate
+extension SmallWarehouseViewController: NSTableViewDelegate {
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        
+        var cellView: NSTableCellView? = nil
+        
+        switch tableColumn?.identifier.rawValue {
+        case "ID":
+            cellView = makeCellView(id: "idCell") as? NSTableCellView
+            if let id = repo.smallWarehouse[row].id {
+                cellView?.textField?.integerValue = id
+            }
+        case "Good":
+            let tmpCellView = makeCellView(id: "goodCell") as? ChooseGoodCellView
+            
+            if let index = repo.goods.firstIndex(where: { good in
+                good.id == repo.smallWarehouse[row].good.id
+            }) {
+                tmpCellView?.selectGood(at: index)
+            }
+            cellView = tmpCellView
+        case "Count":
+            cellView = makeCellView(id: "countCell") as? NSTableCellView
+            cellView?.textField?.integerValue = repo.smallWarehouse[row].goodCount
+        default:
+            return nil
+        }
+        
+        return cellView
+    }
+    
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        removeButton.isEnabled = table.numberOfSelectedRows > 0
+    }
+    
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        20
+    }
+    
+    private func makeCellView(id: String) -> NSView? {
+        table.makeView(
+            withIdentifier: NSUserInterfaceItemIdentifier(rawValue: id),
+            owner: self)
+    }
+}
+
+// MARK: - NSTableViewDataSource
+extension SmallWarehouseViewController: NSTableViewDataSource {
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        repo.smallWarehouse.count
+    }
 }
