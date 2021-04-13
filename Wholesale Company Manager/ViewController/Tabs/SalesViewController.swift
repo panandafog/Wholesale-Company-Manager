@@ -11,6 +11,8 @@ class SalesViewController: NSViewController {
     
     private var repo = Repository.shared
     
+    var presentedPopover: NSPopover?
+    
     @IBOutlet var table: NSTableView!
     @IBOutlet var addButton: NSButton!
     @IBOutlet var removeButton: NSButton!
@@ -27,8 +29,18 @@ class SalesViewController: NSViewController {
     }
     
     // MARK: IBActions
-    @IBAction func addButtonPressed(_ sender: Any) {
+    @IBAction func addButtonPressed(_ sender: NSButton) {
+        let popoverContentController = NSStoryboard(name: NSStoryboard.Name("Sales"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("AddSalePopoverVC")) as! AddSalePopoverVC
+        popoverContentController.completion = { sale in
+            self.presentedPopover?.close()
+            self.repo.saveSale(sale, completion: self.refreshTableData)
+        }
         
+        presentedPopover = NSPopover()
+        presentedPopover?.behavior = .semitransient
+        presentedPopover?.animates = true
+        presentedPopover?.contentViewController = popoverContentController
+        presentedPopover?.show(relativeTo: sender.bounds, of: sender, preferredEdge: .maxX)
     }
     
     @IBAction func removeButtonPressed(_ sender: Any) {

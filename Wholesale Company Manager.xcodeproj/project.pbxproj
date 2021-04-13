@@ -30,6 +30,9 @@
 		0B4C4BDE2624C45800BAB5A3 /* Rack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4C4BDD2624C45800BAB5A3 /* Rack.swift */; };
 		0B4C4BE22624C4CA00BAB5A3 /* Warehouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4C4BE12624C4CA00BAB5A3 /* Warehouse.swift */; };
 		0B4C4BE62624D87C00BAB5A3 /* ChooseGoodCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4C4BE52624D87C00BAB5A3 /* ChooseGoodCellView.swift */; };
+		0B4C4BEB2625AD9C00BAB5A3 /* AddSalePopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4C4BEA2625AD9C00BAB5A3 /* AddSalePopoverVC.swift */; };
+		0B4C4BEF2625C48800BAB5A3 /* AddRackPopover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B4C4BEE2625C48800BAB5A3 /* AddRackPopover.storyboard */; };
+		0B4C4BF22625C4A300BAB5A3 /* AddRackPopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4C4BF12625C4A300BAB5A3 /* AddRackPopoverVC.swift */; };
 		9BDC234CFC79E9E3482267A0 /* Pods_Wholesale_Company_Manager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4B5021B8976BCF2338B3EB8 /* Pods_Wholesale_Company_Manager.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +63,9 @@
 		0B4C4BDD2624C45800BAB5A3 /* Rack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rack.swift; sourceTree = "<group>"; };
 		0B4C4BE12624C4CA00BAB5A3 /* Warehouse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Warehouse.swift; sourceTree = "<group>"; };
 		0B4C4BE52624D87C00BAB5A3 /* ChooseGoodCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGoodCellView.swift; sourceTree = "<group>"; };
+		0B4C4BEA2625AD9C00BAB5A3 /* AddSalePopoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSalePopoverVC.swift; sourceTree = "<group>"; };
+		0B4C4BEE2625C48800BAB5A3 /* AddRackPopover.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddRackPopover.storyboard; sourceTree = "<group>"; };
+		0B4C4BF12625C4A300BAB5A3 /* AddRackPopoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRackPopoverVC.swift; sourceTree = "<group>"; };
 		31FE3932228735C41E4E5603 /* Pods-Wholesale Company Manager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wholesale Company Manager.debug.xcconfig"; path = "Target Support Files/Pods-Wholesale Company Manager/Pods-Wholesale Company Manager.debug.xcconfig"; sourceTree = "<group>"; };
 		7DD7693D4942B572E7C71273 /* Pods-Wholesale Company Manager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wholesale Company Manager.release.xcconfig"; path = "Target Support Files/Pods-Wholesale Company Manager/Pods-Wholesale Company Manager.release.xcconfig"; sourceTree = "<group>"; };
 		B4B5021B8976BCF2338B3EB8 /* Pods_Wholesale_Company_Manager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wholesale_Company_Manager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +135,7 @@
 				0B4C4BA72621EC7900BAB5A3 /* SplitViewController.swift */,
 				0B4C4BAA2621EC8F00BAB5A3 /* SidebarViewController.swift */,
 				0B4C4BAE2621F7FD00BAB5A3 /* Tabs */,
+				0B4C4BE92625AD8400BAB5A3 /* Popover */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -140,6 +147,7 @@
 				0B4C4B9A2621EBEF00BAB5A3 /* Goods.storyboard */,
 				0B4C4BA32621EC1300BAB5A3 /* SmallWarehouse.storyboard */,
 				0B4C4BA02621EC0600BAB5A3 /* BigWarehouse.storyboard */,
+				0B4C4BEE2625C48800BAB5A3 /* AddRackPopover.storyboard */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -181,6 +189,15 @@
 				0B4C4BE52624D87C00BAB5A3 /* ChooseGoodCellView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		0B4C4BE92625AD8400BAB5A3 /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				0B4C4BEA2625AD9C00BAB5A3 /* AddSalePopoverVC.swift */,
+				0B4C4BF12625C4A300BAB5A3 /* AddRackPopoverVC.swift */,
+			);
+			path = Popover;
 			sourceTree = "<group>";
 		};
 		F0DD64CD3EC2F8024CD495D2 /* Pods */ = {
@@ -264,6 +281,7 @@
 				0B4C4B852621BB1E00BAB5A3 /* Assets.xcassets in Resources */,
 				0B4C4B882621BB1E00BAB5A3 /* Start.storyboard in Resources */,
 				0B4C4B9B2621EBEF00BAB5A3 /* Goods.storyboard in Resources */,
+				0B4C4BEF2625C48800BAB5A3 /* AddRackPopover.storyboard in Resources */,
 				0B4C4B9E2621EBF900BAB5A3 /* Sales.storyboard in Resources */,
 				0B4C4BA42621EC1300BAB5A3 /* SmallWarehouse.storyboard in Resources */,
 			);
@@ -321,9 +339,11 @@
 				0B4C4BB02621F80800BAB5A3 /* SalesViewController.swift in Sources */,
 				0B4C4BBE2621F99800BAB5A3 /* StartViewController.swift in Sources */,
 				0B4C4BDB2624B94900BAB5A3 /* Sale.swift in Sources */,
+				0B4C4BF22625C4A300BAB5A3 /* AddRackPopoverVC.swift in Sources */,
 				0B4C4B812621BB1B00BAB5A3 /* AppDelegate.swift in Sources */,
 				0B4C4BDE2624C45800BAB5A3 /* Rack.swift in Sources */,
 				0B4C4BC926221A5400BAB5A3 /* APIClient.swift in Sources */,
+				0B4C4BEB2625AD9C00BAB5A3 /* AddSalePopoverVC.swift in Sources */,
 				0B4C4BA82621EC7900BAB5A3 /* SplitViewController.swift in Sources */,
 				0B4C4BCE26221B6E00BAB5A3 /* Good.swift in Sources */,
 				0B4C4BE62624D87C00BAB5A3 /* ChooseGoodCellView.swift in Sources */,

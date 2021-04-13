@@ -33,7 +33,6 @@ class ChooseGoodCellView: NSTableCellView {
 }
 
 // MARK: - NSComboBoxDelegate
-
 extension ChooseGoodCellView: NSComboBoxDelegate {
 
     func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
@@ -51,7 +50,6 @@ extension ChooseGoodCellView: NSComboBoxDelegate {
 }
 
 // MARK: - NSComboBoxDataSource
-
 extension ChooseGoodCellView: NSComboBoxDataSource {
 
     func numberOfItems(in comboBox: NSComboBox) -> Int {

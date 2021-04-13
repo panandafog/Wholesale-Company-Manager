@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Rack PopoverVC-->
+        <scene sceneID="iVr-Hd-MUA">
+            <objects>
+                <viewController identifier="AddRackPopoverVC" storyboardIdentifier="AddRackPopoverVC" id="O0n-3m-FAZ" customClass="AddRackPopoverVC" customModule="Wholesale_Company_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="7ZI-KE-MPq" customClass="Add">
+                        <rect key="frame" x="0.0" y="0.0" width="229" height="117"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8ZR-E3-Nxo">
+                                <rect key="frame" x="73" y="48" width="136" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" bezelStyle="round" id="xtB-hO-Inc">
+                                    <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" formatWidth="-1" groupingSize="0" minimumIntegerDigits="1" maximumIntegerDigits="42" id="4Fb-6c-fbk"/>
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <action selector="countValueChanged:" target="O0n-3m-FAZ" id="iBM-hd-X9a"/>
+                                </connections>
+                            </textField>
+                            <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7uf-iX-oFo">
+                                <rect key="frame" x="73" y="74" width="139" height="25"/>
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="csd-6N-Ggg">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <objectValues>
+                                        <string>Item 1</string>
+                                        <string>Item 2</string>
+                                        <string>Item 3</string>
+                                    </objectValues>
+                                </comboBoxCell>
+                                <connections>
+                                    <action selector="goodSelectionChanged:" target="O0n-3m-FAZ" id="KH7-cZ-G2P"/>
+                                </connections>
+                            </comboBox>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SRd-xf-Cdv">
+                                <rect key="frame" x="18" y="80" width="37" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Good" id="PUQ-rI-nKO">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OMh-41-ti4">
+                                <rect key="frame" x="18" y="52" width="41" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Count" id="qUM-ul-YIt">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fxE-LO-Wgo">
+                                <rect key="frame" x="169" y="13" width="47" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="rJA-md-Yz5"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="Submit" bezelStyle="rounded" image="NSRightFacingTriangleTemplate" imagePosition="only" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FbZ-qe-H3r">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="submit:" target="O0n-3m-FAZ" id="vqc-sX-P4d"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="SRd-xf-Cdv" firstAttribute="top" secondItem="7ZI-KE-MPq" secondAttribute="top" constant="21" id="84g-h6-fK2"/>
+                            <constraint firstAttribute="trailing" secondItem="8ZR-E3-Nxo" secondAttribute="trailing" constant="20" symbolic="YES" id="Gki-1u-eLH"/>
+                            <constraint firstItem="OMh-41-ti4" firstAttribute="top" secondItem="SRd-xf-Cdv" secondAttribute="bottom" constant="12" id="H7l-UN-44o"/>
+                            <constraint firstItem="7uf-iX-oFo" firstAttribute="top" secondItem="7ZI-KE-MPq" secondAttribute="top" constant="20" symbolic="YES" id="Kao-lu-oOY"/>
+                            <constraint firstItem="fxE-LO-Wgo" firstAttribute="top" secondItem="8ZR-E3-Nxo" secondAttribute="bottom" constant="8" id="L7d-i5-o1p"/>
+                            <constraint firstItem="SRd-xf-Cdv" firstAttribute="leading" secondItem="7ZI-KE-MPq" secondAttribute="leading" constant="20" symbolic="YES" id="OGu-Ay-Kpg"/>
+                            <constraint firstAttribute="bottom" secondItem="fxE-LO-Wgo" secondAttribute="bottom" constant="20" symbolic="YES" id="Ogw-BG-Kb8"/>
+                            <constraint firstAttribute="trailing" secondItem="fxE-LO-Wgo" secondAttribute="trailing" constant="20" symbolic="YES" id="Qp3-3Q-iqk"/>
+                            <constraint firstItem="8ZR-E3-Nxo" firstAttribute="top" secondItem="7uf-iX-oFo" secondAttribute="bottom" constant="8" symbolic="YES" id="TgZ-oe-KMp"/>
+                            <constraint firstItem="OMh-41-ti4" firstAttribute="leading" secondItem="7ZI-KE-MPq" secondAttribute="leading" constant="20" symbolic="YES" id="a7J-hm-QRo"/>
+                            <constraint firstItem="7uf-iX-oFo" firstAttribute="leading" secondItem="SRd-xf-Cdv" secondAttribute="trailing" constant="20" id="ho5-gv-gCk"/>
+                            <constraint firstAttribute="trailing" secondItem="7uf-iX-oFo" secondAttribute="trailing" constant="20" symbolic="YES" id="o2t-5h-sJ9"/>
+                            <constraint firstItem="8ZR-E3-Nxo" firstAttribute="leading" secondItem="OMh-41-ti4" secondAttribute="trailing" constant="16" id="tq6-Yo-Gk4"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="countTextField" destination="8ZR-E3-Nxo" id="gnJ-Qa-zMd"/>
+                        <outlet property="goodComboBox" destination="7uf-iX-oFo" id="Ki6-ny-TzM"/>
+                        <outlet property="submitButton" destination="fxE-LO-Wgo" id="14d-dn-cWR"/>
+                    </connections>
+                </viewController>
+                <customObject id="c7i-GN-Zqh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="602.5" y="118.5"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="NSRightFacingTriangleTemplate" width="10" height="14"/>
+    </resources>
+</document>

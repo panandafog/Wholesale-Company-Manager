@@ -12,7 +12,7 @@ struct Sale: Codable {
     var createDate: String = {
         let today = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY-MM-DD"
+        formatter.dateFormat = "YYYY-MM-dd"
         return formatter.string(from: today)
     }()
     var good: Good
