@@ -55,11 +55,11 @@
             <objects>
                 <viewController id="Uhs-l1-xpX" customClass="SidebarViewController" customModule="Wholesale_Company_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Lzh-h4-Gcf">
-                        <rect key="frame" x="0.0" y="0.0" width="149" height="388"/>
+                        <rect key="frame" x="0.0" y="0.0" width="149" height="379"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TyW-ED-Tm3">
-                                <rect key="frame" x="8" y="176" width="133" height="19"/>
+                                <rect key="frame" x="8" y="167" width="133" height="19"/>
                                 <buttonCell key="cell" type="recessed" title="Goods" bezelStyle="recessed" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="xh7-lf-f4q">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -69,7 +69,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gS8-ga-2oN">
-                                <rect key="frame" x="8" y="217" width="133" height="19"/>
+                                <rect key="frame" x="8" y="208" width="133" height="19"/>
                                 <buttonCell key="cell" type="recessed" title="Sales" bezelStyle="recessed" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bww-eg-UFX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -79,7 +79,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xhz-p5-Eke">
-                                <rect key="frame" x="8" y="94" width="133" height="19"/>
+                                <rect key="frame" x="8" y="85" width="133" height="19"/>
                                 <buttonCell key="cell" type="recessed" title="Big warehouse" bezelStyle="recessed" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6fA-km-s12">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -89,7 +89,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uaz-d2-E9A">
-                                <rect key="frame" x="8" y="135" width="133" height="19"/>
+                                <rect key="frame" x="8" y="126" width="133" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="133" id="XKy-te-7WO"/>
                                 </constraints>
@@ -101,20 +101,33 @@
                                     <action selector="switchTab:" target="Uhs-l1-xpX" id="z2t-fA-dDe"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I7I-0I-LxP">
+                                <rect key="frame" x="8" y="44" width="133" height="19"/>
+                                <buttonCell key="cell" type="recessed" title="Demand" bezelStyle="recessed" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SbQ-iE-quv">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="switchTab:" target="Uhs-l1-xpX" id="9TM-LW-RU7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="TyW-ED-Tm3" firstAttribute="top" secondItem="gS8-ga-2oN" secondAttribute="bottom" constant="23" id="3h8-l6-G8f"/>
                             <constraint firstItem="gS8-ga-2oN" firstAttribute="top" secondItem="oKm-oe-AYO" secondAttribute="top" constant="100" id="46j-SZ-YfX"/>
                             <constraint firstItem="gS8-ga-2oN" firstAttribute="leading" secondItem="oKm-oe-AYO" secondAttribute="leading" constant="8" id="6Nb-UE-UAT"/>
-                            <constraint firstItem="xT6-wz-cBI" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xhz-p5-Eke" secondAttribute="bottom" constant="20" id="7Zv-HO-SQx"/>
+                            <constraint firstItem="oKm-oe-AYO" firstAttribute="trailing" secondItem="I7I-0I-LxP" secondAttribute="trailing" constant="8" id="C9m-vX-7x2"/>
                             <constraint firstItem="TyW-ED-Tm3" firstAttribute="leading" secondItem="oKm-oe-AYO" secondAttribute="leading" constant="8" id="ITg-ZZ-NhP"/>
                             <constraint firstItem="oKm-oe-AYO" firstAttribute="trailing" secondItem="TyW-ED-Tm3" secondAttribute="trailing" constant="8" id="JkK-li-mH4"/>
                             <constraint firstItem="xhz-p5-Eke" firstAttribute="top" secondItem="Uaz-d2-E9A" secondAttribute="bottom" constant="23" id="Lcg-O0-669"/>
+                            <constraint firstItem="xT6-wz-cBI" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="I7I-0I-LxP" secondAttribute="bottom" constant="25" id="R91-sY-D9t"/>
                             <constraint firstItem="oKm-oe-AYO" firstAttribute="trailing" secondItem="gS8-ga-2oN" secondAttribute="trailing" constant="8" id="Sgh-sM-UnM"/>
                             <constraint firstItem="xhz-p5-Eke" firstAttribute="leading" secondItem="oKm-oe-AYO" secondAttribute="leading" constant="8" id="UQo-yB-HLp"/>
+                            <constraint firstItem="I7I-0I-LxP" firstAttribute="top" secondItem="xhz-p5-Eke" secondAttribute="bottom" constant="23" id="WYQ-pa-ep2"/>
                             <constraint firstItem="oKm-oe-AYO" firstAttribute="trailing" secondItem="xhz-p5-Eke" secondAttribute="trailing" constant="8" id="ayB-TR-Lap"/>
                             <constraint firstItem="Uaz-d2-E9A" firstAttribute="top" secondItem="TyW-ED-Tm3" secondAttribute="bottom" constant="23" id="l3V-8C-cwy"/>
                             <constraint firstItem="oKm-oe-AYO" firstAttribute="trailing" secondItem="Uaz-d2-E9A" secondAttribute="trailing" constant="8" id="n7R-83-gyG"/>
+                            <constraint firstItem="I7I-0I-LxP" firstAttribute="leading" secondItem="oKm-oe-AYO" secondAttribute="leading" constant="8" id="nBk-KK-xr5"/>
                             <constraint firstItem="Uaz-d2-E9A" firstAttribute="leading" secondItem="oKm-oe-AYO" secondAttribute="leading" constant="8" id="rzy-TE-iEK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oKm-oe-AYO"/>
@@ -122,6 +135,7 @@
                     </view>
                     <connections>
                         <outlet property="bigWarehouseTabButton" destination="xhz-p5-Eke" id="xrE-Qt-FI3"/>
+                        <outlet property="demandTabButton" destination="I7I-0I-LxP" id="eNo-eN-wvZ"/>
                         <outlet property="goodsTabButton" destination="TyW-ED-Tm3" id="btR-v3-ffQ"/>
                         <outlet property="salesTabButton" destination="gS8-ga-2oN" id="ypm-sF-nf3"/>
                         <outlet property="smallWarehouseTabButton" destination="Uaz-d2-E9A" id="xk7-hE-YRI"/>

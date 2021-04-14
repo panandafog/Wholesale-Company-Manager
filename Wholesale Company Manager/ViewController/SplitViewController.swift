@@ -17,6 +17,8 @@ class SplitViewController: NSSplitViewController {
         as! SmallWarehouseViewController
     let bigWarehouseViewController = NSStoryboard(name: "BigWarehouse", bundle: nil).instantiateController(withIdentifier: "BigWarehouseViewController")
         as! BigWarehouseViewController
+    let demandViewController = NSStoryboard(name: "Demand", bundle: nil).instantiateController(withIdentifier: "DemandViewController")
+        as! DemandViewController
     
     var sidebarViewController: SidebarViewController?
     
@@ -30,7 +32,8 @@ class SplitViewController: NSSplitViewController {
             salesViewController,
             goodsViewController,
             smallWarehouseViewController,
-            bigWarehouseViewController
+            bigWarehouseViewController,
+            demandViewController
         ]
         
         sidebarViewController = self.children[0] as? SidebarViewController

@@ -17,6 +17,8 @@ class SidebarViewController: NSViewController {
     @IBOutlet var goodsTabButton: NSButton!
     @IBOutlet var smallWarehouseTabButton: NSButton!
     @IBOutlet var bigWarehouseTabButton: NSButton!
+    @IBOutlet var demandTabButton: NSButton!
+    
     
     // MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -26,7 +28,8 @@ class SidebarViewController: NSViewController {
             salesTabButton,
             goodsTabButton,
             smallWarehouseTabButton,
-            bigWarehouseTabButton
+            bigWarehouseTabButton,
+            demandTabButton
         ]
         
         disableTabSelectors(excluding: salesTabButton)
