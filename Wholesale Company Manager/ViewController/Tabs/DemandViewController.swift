@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import Charts
 
 class DemandViewController: NSViewController {
     
@@ -19,6 +20,7 @@ class DemandViewController: NSViewController {
     @IBOutlet var goodComboBox: NSComboBox!
     @IBOutlet var fromDatePicker: NSDatePicker!
     @IBOutlet var toDatePicker: NSDatePicker!
+    @IBOutlet var demandChartView: LineChartView!
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -33,10 +35,11 @@ class DemandViewController: NSViewController {
         goodComboBox.usesDataSource = true
         goodComboBox.delegate = self
         goodComboBox.dataSource = self
-
+        
         goodComboBox.reloadData()
         goodComboBox.selectItem(at: 0)
         
+        setupChart()
         refreshPopularTable()
     }
     
@@ -87,6 +90,35 @@ class DemandViewController: NSViewController {
     
     private func onTableDataChanged(_ demand: [DailyDemand]) {
         self.demandTable.reloadData()
+        self.refreshChartData()
+    }
+    
+    private func setupChart() {
+        demandChartView.xAxis.labelTextColor = .textColor
+        demandChartView.leftAxis.labelTextColor = .textColor
+        demandChartView.rightAxis.labelTextColor = .textColor
+        demandChartView.chartDescription?.textColor = .textColor
+        demandChartView.legend.textColor = .textColor
+        demandChartView.noDataTextColor = .textColor
+        
+        demandChartView.gridBackgroundColor = .controlAccentColor
+        demandChartView.rightAxis.drawLabelsEnabled = false
+    }
+    
+    private func refreshChartData() {
+        
+        var dataEntries: [ChartDataEntry] = []
+        
+        demand.forEach({ dailyDemand in
+            let dataEntry = ChartDataEntry(x: Double(dailyDemand.day), y: dailyDemand.goodCount)
+            dataEntries.append(dataEntry)
+        })
+        
+        let lineChartDataSet = LineChartDataSet(entries: dataEntries, label: "")
+        let lineChartData = LineChartData(dataSet: lineChartDataSet)
+        demandChartView.data = lineChartData
+        
+        demandChartView.animate(xAxisDuration: 0.0, yAxisDuration: 1.0)
     }
 }
 
@@ -115,7 +147,7 @@ extension DemandViewController: NSTableViewDelegate {
         
         return cellView
     }
-
+    
     func viewForDemandTable(columnId: String?, row: Int) -> NSView? {
         var cellView: NSTableCellView? = nil
         
@@ -132,16 +164,16 @@ extension DemandViewController: NSTableViewDelegate {
         
         return cellView
     }
-
+    
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         if tableView.identifier?.rawValue ?? "" == "popularGoodsTable" {
             return viewForPopularGoodsTable(columnId: tableColumn?.identifier.rawValue, row: row)
         }
-
+        
         if tableView.identifier?.rawValue ?? "" == "demandTable" {
             return viewForDemandTable(columnId: tableColumn?.identifier.rawValue, row: row)
         }
-
+        
         return nil
     }
     
@@ -156,13 +188,13 @@ extension DemandViewController: NSTableViewDelegate {
 extension DemandViewController: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         switch tableView.identifier?.rawValue ?? "" {
-
+        
         case "popularGoodsTable":
             return repo.mostPopularGoods.count
-
+            
         case "demandTable":
             return self.demand.count
-
+            
         default:
             return 0
         }
@@ -171,7 +203,7 @@ extension DemandViewController: NSTableViewDataSource {
 
 // MARK: - NSComboBoxDelegate
 extension DemandViewController: NSComboBoxDelegate {
-
+    
     func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
         guard index >= 0 && index < repo.goods.count else {
             return nil
@@ -188,7 +220,7 @@ extension DemandViewController: NSComboBoxDelegate {
 
 // MARK: - NSComboBoxDataSource
 extension DemandViewController: NSComboBoxDataSource {
-
+    
     func numberOfItems(in comboBox: NSComboBox) -> Int {
         repo.goods.count
     }

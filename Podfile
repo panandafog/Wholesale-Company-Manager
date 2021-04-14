@@ -8,4 +8,5 @@ target 'Wholesale Company Manager' do
   # Pods for Wholesale Company Manager
 
   pod 'Alamofire', '~> 5.4.1'
+  pod 'Charts', '~> 3.6.0'
 end

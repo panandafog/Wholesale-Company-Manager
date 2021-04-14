@@ -19,7 +19,6 @@ class SidebarViewController: NSViewController {
     @IBOutlet var bigWarehouseTabButton: NSButton!
     @IBOutlet var demandTabButton: NSButton!
     
-    
     // MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
