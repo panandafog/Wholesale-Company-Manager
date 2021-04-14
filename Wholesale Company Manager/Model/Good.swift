@@ -8,5 +8,8 @@
 struct Good: Codable {
     var id: Int?
     var name = "<name>"
-    var priority = 1
+    var priority: Int? = 1
+
+    // for popularity stats
+    var count: Int?
 }

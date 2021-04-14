@@ -16,6 +16,8 @@ class APIClient {
     private let smallWarehousePath = "/warehouse1"
     private let bigWarehousePath = "/warehouse2"
     private let getAllPath = "/get/all"
+    private let getMostPopularPath = "/get/most/popular"
+    private let getDemand = "/get/demand"
     private let savePath = "/save"
     private let deleteByIdPath = "/delete/by/id"
     
@@ -36,6 +38,69 @@ class APIClient {
             }
             completion(goods)
         })
+    }
+    
+    // MARK: - getMostPopularGoods
+    func getMostPopularGoods(completion: @escaping ((_ goods: [Good]) -> Void)) {
+        
+        guard let url = URL(string: host + goodsPath + getMostPopularPath) else {
+            return
+        }
+        let request = AF.request(url)
+        
+        request.responseJSON(completionHandler: { json in
+            guard let data = json.data else {
+                return
+            }
+            guard let goods = try? JSONDecoder().decode([Good].self, from: data) else {
+                return
+            }
+            completion(goods)
+        })
+    }
+    
+    // MARK: - getDemand
+    func getDemand(
+        goodID: Int,
+        minTime: Date,
+        maxTime: Date,
+        completion: @escaping ((_ demand: [DailyDemand]) -> Void)
+    ) {
+        
+        guard let url = URL(string: host + goodsPath + getDemand) else {
+            return
+        }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd hh:mm:ss.SSS"
+        
+        let json: [String: Any] = [
+            "min_time": formatter.string(from: minTime),
+            "max_time": formatter.string(from: maxTime),
+            "good_id": goodID
+        ]
+
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+        
+        AF.request(request).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                guard let data = response.data else {
+                    return
+                }
+                guard let demand = try? JSONDecoder().decode([DailyDemand].self, from: data) else {
+                    return
+                }
+                completion(demand)
+            case .failure(let error):
+                print ("error")
+            }
+        }
     }
     
     // MARK: saveGood

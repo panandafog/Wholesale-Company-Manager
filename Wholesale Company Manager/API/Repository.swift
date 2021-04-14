@@ -5,11 +5,14 @@
 //  Created by panandafog on 10.04.2021.
 //
 
+import Foundation
+
 class Repository {
     
     private var client = APIClient()
     
     private (set) var goods = [Good]()
+    private (set) var mostPopularGoods = [Good]()
     private (set) var sales = [Sale]()
     private (set) var smallWarehouse = [Rack]()
     private (set) var bigWarehouse = [Rack]()
@@ -25,6 +28,14 @@ class Repository {
     func refreshGoods(completion: @escaping ((_ goods: [Good]) -> Void)) {
         client.getAllGoods(completion: { goods in
             self.goods = goods
+            completion(goods)
+        })
+    }
+    
+    // MARK: refreshMostPopularGoods
+    func refreshMostPopularGoods(completion: @escaping ((_ goods: [Good]) -> Void)) {
+        client.getMostPopularGoods(completion: { goods in
+            self.mostPopularGoods = goods
             completion(goods)
         })
     }
@@ -47,6 +58,18 @@ class Repository {
         client.deleteGood(id: id, completion: completion)
     }
     
+    // MARK: getDemand
+    func getDemand(
+        goodID: Int,
+        minTime: Date,
+        maxTime: Date,
+        completion: @escaping ((_ demand: [DailyDemand]) -> Void)
+    ) {
+        client.getDemand(goodID: goodID, minTime: minTime, maxTime: maxTime, completion: { demand in
+            completion(demand)
+        })
+    }
+    
     // MARK: - refreshSales
     func refreshSales(completion: @escaping ((_ sales: [Sale]) -> Void)) {
         client.getAllSales(completion: { sales in
@@ -54,11 +77,6 @@ class Repository {
             completion(sales)
         })
     }
-    
-    // MARK: addSale
-//    func addSale(completion: (() -> Void)?) {
-//        saveSale(Sale(), completion: completion)
-//    }
     
     // MARK: saveSale
     func saveSale(_ sale: Sale, completion: (() -> Void)?) {
@@ -86,11 +104,6 @@ class Repository {
             completion(racks)
         })
     }
-    
-    // MARK: addRack
-//    func addSale(completion: (() -> Void)?) {
-//        saveSale(Sale(), completion: completion)
-//    }
     
     // MARK: saveRack
     func saveRack(_ rack: Rack, warehouse: Warehouse,  completion: (() -> Void)?) {

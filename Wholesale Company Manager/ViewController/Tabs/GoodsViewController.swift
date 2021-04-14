@@ -108,8 +108,10 @@ extension GoodsViewController: NSTableViewDelegate {
             cellView = makeCellView(id: "nameCell") as? NSTableCellView
             cellView?.textField?.stringValue = repo.goods[row].name
         case "Priority":
-            cellView = makeCellView(id: "priorityCell") as? NSTableCellView
-            cellView?.textField?.integerValue = repo.goods[row].priority
+            if let priority = repo.goods[row].priority {
+                cellView = makeCellView(id: "priorityCell") as? NSTableCellView
+                cellView?.textField?.integerValue = priority
+            }
         default:
             return nil
         }
