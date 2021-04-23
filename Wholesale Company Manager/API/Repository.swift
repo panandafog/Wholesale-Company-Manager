@@ -83,6 +83,11 @@ class Repository {
         client.saveSale(sale, completion: completion)
     }
     
+    // MARK: saleAndWriteOff
+    func saleAndWriteOff(_ sale: Sale, completion: (() -> Void)?) {
+        client.saleAndWriteOff(sale, completion: completion)
+    }
+    
     // MARK: deleteSale
     func deleteSale(_ sale: Sale, completion: (() -> Void)?) {
         guard let id = sale.id else {

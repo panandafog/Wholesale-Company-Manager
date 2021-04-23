@@ -33,7 +33,7 @@ class SalesViewController: NSViewController {
         let popoverContentController = NSStoryboard(name: NSStoryboard.Name("Sales"), bundle: nil).instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("AddSalePopoverVC")) as! AddSalePopoverVC
         popoverContentController.completion = { sale in
             self.presentedPopover?.close()
-            self.repo.saveSale(sale, completion: self.refreshTableData)
+            self.repo.saleAndWriteOff(sale, completion: self.refreshTableData)
         }
         
         presentedPopover = NSPopover()

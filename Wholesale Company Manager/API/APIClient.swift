@@ -13,6 +13,7 @@ class APIClient {
     private let host = "http://localhost:8080"
     private let goodsPath = "/goods"
     private let salesPath = "/sales"
+    private let saleAndWriteOffPath = "/sales/sale/and/write/off"
     private let smallWarehousePath = "/warehouse1"
     private let bigWarehousePath = "/warehouse2"
     private let getAllPath = "/get/all"
@@ -174,6 +175,35 @@ class APIClient {
     func saveSale(_ sale: Sale, completion: (() -> Void)?) {
         
         guard let url = URL(string: host + salesPath + savePath) else {
+            return
+        }
+        let encoder = JSONEncoder()
+        
+        guard let jsonData = try? encoder.encode(sale) else {
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+        request.httpBody = jsonData
+        
+        AF.request(request).responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                print ("finish")
+                if completion != nil {
+                    completion!()
+                }
+            case .failure(let error):
+                print ("error")
+            }
+        }
+    }
+    
+    // MARK: saleAndWriteOff
+    func saleAndWriteOff(_ sale: Sale, completion: (() -> Void)?) {
+        
+        guard let url = URL(string: host + saleAndWriteOffPath) else {
             return
         }
         let encoder = JSONEncoder()

@@ -10,13 +10,13 @@
             <objects>
                 <viewController identifier="SalesViewController" storyboardIdentifier="SalesViewController" id="kAC-JD-a4r" customClass="SalesViewController" customModule="Wholesale_Company_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" misplaced="YES" id="Ja1-uc-24m">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="52" horizontalPageScroll="10" verticalLineScroll="52" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kiw-kt-J8G">
-                                <rect key="frame" x="20" y="35" width="390" height="240"/>
+                                <rect key="frame" x="20" y="35" width="310" height="240"/>
                                 <clipView key="contentView" id="VmI-c2-5ba">
-                                    <rect key="frame" x="1" y="1" width="388" height="238"/>
+                                    <rect key="frame" x="1" y="1" width="308" height="238"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="52" rowSizeStyle="automatic" headerView="ybZ-dP-j3i" viewBased="YES" id="eVb-cU-5mg">
@@ -177,7 +177,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="FiL-gG-t1w">
-                                    <rect key="frame" x="1" y="223" width="388" height="16"/>
+                                    <rect key="frame" x="1" y="223" width="308" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="3oM-St-8On">
@@ -190,7 +190,7 @@
                                 </tableHeaderView>
                             </scrollView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pBV-hX-VxY">
-                                <rect key="frame" x="374" y="10" width="16" height="18"/>
+                                <rect key="frame" x="274" y="10" width="16" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="R2h-G9-1s0"/>
                                     <constraint firstAttribute="width" constant="16" id="wEE-Di-BDL"/>
@@ -204,7 +204,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yJT-AA-6BQ">
-                                <rect key="frame" x="394" y="10" width="16" height="18"/>
+                                <rect key="frame" x="294" y="10" width="16" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="X1k-3X-vII"/>
                                     <constraint firstAttribute="width" constant="16" id="bSr-KF-Dpe"/>
@@ -300,8 +300,8 @@
                                 </constraints>
                                 <datePickerCell key="cell" borderStyle="bezel" alignment="left" useCurrentDate="YES" id="iOZ-pb-So4">
                                     <font key="font" metaFont="system"/>
-                                    <date key="date" timeIntervalSinceReferenceDate="640004465.62957203">
-                                        <!--2021-04-13 11:01:05 +0000-->
+                                    <date key="date" timeIntervalSinceReferenceDate="640133337.31343901">
+                                        <!--2021-04-14 22:48:57 +0000-->
                                     </date>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
